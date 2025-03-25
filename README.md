@@ -67,7 +67,7 @@ int main() {
 
 Para estructurar la validación de palabras, tomé como referencia el funcionamiento de `regex_match()` , una función de la biblioteca `<regex>` que evalúa si una cadena coincide completamente con un patrón predefinido. Además, la implementación se apoya en estructuras de datos como `vector<string>` para manejar múltiples palabras de prueba, lo que permite verificar la precisión del reconocimiento.
 
-![pruebaaaaaas](https://github.com/user-attachments/assets/f7dd0bbb-070e-4829-9b19-d842c53976eb)
+![out](https://github.com/user-attachments/assets/33439fcc-b0da-4007-bc7f-d78b7c81b100)
 
 
 # Implementación
