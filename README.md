@@ -118,6 +118,9 @@ La función principal `verificar_automata` inicia la verificación llamando a `c
 Por último, se incluyen varios casos de prueba, como `albudeite`, `almirez`, `araq`, `atambal` y `atanin`. Cada uno imprime la palabra y el resultado esperado (verdadero si la palabra es reconocida por el autómata). Esto permite comprobar que la implementación funciona correctamente.
 
 
+# Pruebas
+
+Para ejecutar el programa
 
 # Analisis
 
