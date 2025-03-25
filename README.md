@@ -28,6 +28,39 @@ Adjunto una captura de prueba desde regex101 para comprobar que la expresión fu
 
 ![pruebaaa](https://github.com/user-attachments/assets/180623e1-949c-48e5-84ea-b4afa5e3a4a7)
 
+# Implementación y pruebas de la expresión regular
+
+Para mi implementación de la expresión regular utilice C++
+
+```
+#include <iostream>
+#include <regex>
+#include <vector>
+
+using namespace std;
+
+bool coincide_expresion(const string &palabra) {
+    regex patron(R"(^a(l(budeite|mirez)|ta(mbal|nin)|raq))"); // Expresión regular
+    return regex_match(palabra, patron);
+}
+
+void probar_expresion() {
+    vector<string> palabras = {
+        "albudeite", "almirez", "atambal", "atanin", "araq",
+        "alba", "atamin", "a", "albur", "albañil", "at"
+    };
+
+    for (const auto &palabra : palabras) {
+        cout << palabra << " -> " << (coincide_expresion(palabra) ? "Coincide" : "No coincide") << endl;
+    }
+}
+
+int main() {
+    probar_expresion();
+    return 0;
+}
+```
+
 # Implementación
 
 Primero, se definen las transiciones del autómata con la relación move/3. Cada transición tiene un estado de origen, un estado de destino y un símbolo (una letra). Estas reglas modelan cómo se pueden formar las palabras a partir del estado inicial a hasta el estado de aceptación z.
@@ -79,13 +112,15 @@ Por último, se incluyen varios casos de prueba, como `albudeite`, `almirez`, `a
 
 # Analisis
 
-La complejidad temporal del reconocimiento de palabras en este autómata es O(n), donde n es la longitud de la palabra a verificar. Esta complejidad es consistente con el comportamiento de los autómatas finitos deterministas (DFA), cuya evaluación de cadenas es lineal con respecto al tamaño de la entrada.
+La complejidad temporal del reconocimiento de palabras en este autómata es O(n), donde n es la longitud de la palabra a verificar. Esta complejidad es consistente con el comportamiento de los autómatas finitos deterministas (DFA), cuya evaluación de cadenas es lineal con respecto al tamaño de la entrada. Por supuesto esto se podia solucionar con un NFA, por poner un ejemplo, sin embargo en este caso particular solo seria volver el trabajo mas pesado ya que nuestro lenguaje solo requiere la validez de cinco palabras.
 
-# Comparación de Complejidad con Soluciones Alternativas
+El reconocimiento de palabras en un lenguaje se puede resolver utilizando distintos enfoques computacionales. Le pregunte a Chat GPT sobre otras alternativas de solución comunes y encontre lo siguiente:
 
-El reconocimiento de palabras en un lenguaje se puede resolver utilizando distintos enfoques computacionales. Le pregunte a Chat GPT sobre otras alternativas de solución comunes y me dio lo siguiente:
+- Una alternativa sería usar expresiones regulares, que también tienen O(n) en el mejor caso, pero pueden ser más eficientes si están bien optimizadas en lenguajes como Python o C.
 
-**Solución con Expresiones Regulares - O(n) en promedio, O(n²) en el peor caso**
+- Otra opción sería un árbol de prefijos (trie), que permite búsquedas rápidas pero requiere más memoria. En este caso, la complejidad sigue siendo O(n), pero con mejor manejo de múltiples palabras.
+
+- En resumen, la solución en Prolog es sencilla y clara, pero si se quisiera procesar muchas palabras de manera eficiente, otras estructuras podrían ser mejores.
 
 
 
@@ -95,6 +130,12 @@ El reconocimiento de palabras en un lenguaje se puede resolver utilizando distin
 Hopcroft, J. E., Motwani, R., & Ullman, J. D. (2006). Introduction to Automata Theory, Languages, and Computation. Pearson.
 
 Sipser, M. (2012). Introduction to the Theory of Computation. Cengage Learning.
+
+Stroustrup, B. (2013). The C++ Programming Language (4th Edition). Addison-Wesley.
+
+Aho, A. V., Lam, M. S., Sethi, R., & Ullman, J. D. (2006). Compilers: Principles, Techniques, and Tools (2nd Edition). Pearson.
+
+Documentación oficial de C++: cplusplus.com
 
 
     
