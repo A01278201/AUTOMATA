@@ -30,7 +30,7 @@ Adjunto una captura de prueba desde regex101 para comprobar que la expresión fu
 
 # Implementación y pruebas de la expresión regular
 
-Para mi implementación de la expresión regular utilice C++
+Para implementar el reconocimiento de patrones en palabras en C++, me basé en el uso de la biblioteca estándar <regex>, introducida en C++11. Esta biblioteca proporciona herramientas para la manipulación y validación de cadenas mediante patrones definidos, lo que permite realizar coincidencias de formas eficientes.
 
 ```
 #include <iostream>
@@ -60,6 +60,11 @@ int main() {
     return 0;
 }
 ```
+
+Para estructurar la validación de palabras, tomé como referencia el funcionamiento de `regex_match()` , una función de la biblioteca `<regex>` que evalúa si una cadena coincide completamente con un patrón predefinido. Además, la implementación se apoya en estructuras de datos como `vector<string>` para manejar múltiples palabras de prueba, lo que permite verificar la precisión del reconocimiento.
+
+![pruebaaaaaas](https://github.com/user-attachments/assets/f7dd0bbb-070e-4829-9b19-d842c53976eb)
+
 
 # Implementación
 
