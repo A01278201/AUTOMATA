@@ -73,6 +73,16 @@ Para comprobar si una secuencia de símbolos es aceptada por el autómata, se ut
 
 Todas estas reglas y la base de conocimiento se almacenan en el archivo `automata.pl.` Si una palabra pertenece al lenguaje definido por el autómata, el programa devuelve `true`; de lo contrario, devuelve `false`.
 
+# Analisis
+
+La complejidad temporal del reconocimiento de palabras en este autómata es O(n), donde n es la longitud de la palabra a verificar. Esta complejidad es consistente con el comportamiento de los autómatas finitos deterministas (DFA), cuya evaluación de cadenas es lineal con respecto al tamaño de la entrada.
+
+# Comparación de Complejidad con Soluciones Alternativas
+
+El reconocimiento de palabras en un lenguaje se puede resolver utilizando distintos enfoques computacionales. Le pregunte a Chat GPT sobre otras alternativas de solución comunes y me dio lo siguiente:
+
+**Solución con Expresiones Regulares - O(n) en promedio, O(n²) en el peor caso**
+
 
 
 
