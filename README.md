@@ -30,8 +30,7 @@ Adjunto una captura de prueba desde regex101 para comprobar que la expresión fu
 
 # Implementación
 
-Utilicé un autómata para crear una base de conocimiento y realizar un análisis léxico en Prolog. En esta base de conocimiento, cada transición se define mediante un predicado de move, que representa el estado actual, el siguiente estado y el símbolo de transición entre ellos.
-
+Primero, se definen las transiciones del autómata con la relación move/3. Cada transición tiene un estado de origen, un estado de destino y un símbolo (una letra). Estas reglas modelan cómo se pueden formar las palabras a partir del estado inicial a hasta el estado de aceptación z.
 
 ```move(a, b, a).
 move(b, c, l).
@@ -68,17 +67,15 @@ move(y, z, n).
 
 Cada uno de estos hechos representa cómo se puede mover el autómata de un estado a otro al leer un símbolo específico.
 
-**Estado de aceptación**
-
 El autómata tiene un único estado de aceptación, aunque podrían definirse múltiples si fuera necesario. Esto se representa con:
 
 ```accepting_state(z).```
 
+La función principal `verificar_automata` inicia la verificación llamando a `comprobar_automata`, que es una función recursiva. Esta función revisa cada letra de la lista y verifica si existe una transición válida hasta llegar a un estado final.
+
+Por último, se incluyen varios casos de prueba, como `albudeite`, `almirez`, `araq`, `atambal` y `atanin`. Cada uno imprime la palabra y el resultado esperado (verdadero si la palabra es reconocida por el autómata). Esto permite comprobar que la implementación funciona correctamente.
 
 
-**Archivo fuente**
-
-Todas estas reglas y la base de conocimiento se almacenan en el archivo `automata.pl.` Si una palabra pertenece al lenguaje definido por el autómata, el programa devuelve `true`; de lo contrario, devuelve `false`.
 
 # Analisis
 
@@ -91,6 +88,13 @@ El reconocimiento de palabras en un lenguaje se puede resolver utilizando distin
 **Solución con Expresiones Regulares - O(n) en promedio, O(n²) en el peor caso**
 
 
+
+
+# Referencias
+
+Hopcroft, J. E., Motwani, R., & Ullman, J. D. (2006). Introduction to Automata Theory, Languages, and Computation. Pearson.
+
+Sipser, M. (2012). Introduction to the Theory of Computation. Cengage Learning.
 
 
     
