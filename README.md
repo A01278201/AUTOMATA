@@ -30,13 +30,41 @@ Adjunto una captura de prueba desde regex101 para comprobar que la expresión fu
 
 # Implementación
 
-Utilicé el autómata para construir una base de conocimiento en Prolog y realizar un análisis léxico. En esta base de conocimiento, cada transición está definida por un predicado move/3, que indica el estado actual, el siguiente estado y el símbolo de transición entre ellos.
+Utilicé un autómata para crear una base de conocimiento y realizar un análisis léxico en Prolog. En esta base de conocimiento, cada transición se define mediante un predicado de move, que representa el estado actual, el siguiente estado y el símbolo de transición entre ellos.
 
-**Definición de transiciones**
 
-Las transiciones del autómata se modelan con la siguiente regla:
+```move(a, b, a).
+move(b, c, l).
+move(c, d, b).
+move(d, e, u).
+move(e, f, d).
+move(f, g, e).
+move(g, h, i).
+move(h, i, t).
+move(i, z, e).
 
-`move(estado_inicial, estado_siguiente, símbolo).`
+move(c, j, m).
+move(j, k, i).
+move(k, l, r).
+move(l, m, e).
+move(m, z, z).
+
+move(b, n, r).
+move(n, o, a).
+move(o, z, q).
+
+move(b, p, t).
+move(p, q, a).
+move(q, r, m).
+move(r, s, b).
+move(s, t, a).
+move(t, z, l).
+
+move(q, u, n).
+move(u, y, i).
+move(y, z, n).
+
+```
 
 Cada uno de estos hechos representa cómo se puede mover el autómata de un estado a otro al leer un símbolo específico.
 
@@ -44,30 +72,9 @@ Cada uno de estos hechos representa cómo se puede mover el autómata de un esta
 
 El autómata tiene un único estado de aceptación, aunque podrían definirse múltiples si fuera necesario. Esto se representa con:
 
-`accepting_state(z).`
+```accepting_state(z).```
 
-**Verificación de palabras en el autómata**
 
-Para comprobar si una secuencia de símbolos es aceptada por el autómata, se utilizan reglas recursivas:
-
-1. **Regla auxiliar**
-   La función go_over_automaton/1 sirve como punto de entrada y comienza la verificación desde el estado inicial.
-
-   go_over_automaton(ListtoCheck) :-
-    automatonCheck(ListtoCheck, a).
-
-2. **Caso Base**
-   Si se ha recorrido toda la lista de símbolos, se verifica si el estado actual es un estado de aceptación.
-   
-   automatonCheck([], InitialState) :-
-    accepting_state(InitialState).
-
-4. **Caso recursivo**
-   Se verifica si el estado actual y el símbolo de entrada tienen una transición definida. Si es así, se continúa con el siguiente estado y el resto de la lista.
-   
-   automatonCheck([Symbol | RestofList], InitialState) :-
-    move(InitialState, NextState, Symbol),
-    automatonCheck(RestofList, NextState).
 
 **Archivo fuente**
 
