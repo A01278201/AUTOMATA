@@ -1,5 +1,9 @@
 # Evidencia 1 - Implementación del análisis léxico
 
+Alfredo Arriaga Morales A01278201
+
+# Descripción
+
 La lengua que elegí es la Chalkobsa el cual según investigue es un idioma ficticio de la novela Dune de Frank Herbert. También es el nombre de una lengua secreta que usaban los nobles y príncipes circasianos en la Edad Media. En este caso usaremos las siguientes cinco palabras:
 
 1.	**albudeite** - agua escasa (nombre de Ishia)
