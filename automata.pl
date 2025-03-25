@@ -32,43 +32,43 @@ move(u, y, i).
 move(y, z, n).
 
 % Estado de aceptación
-accepting_state(z).
+estado_aceptacion(z).
 
 % Verifica si una lista de caracteres es aceptada por el autómata
-go_over_automaton(ListtoCheck) :-
-    automatonCheck(ListtoCheck, a).
+verificar_automata(ListaCaracteres) :-
+    comprobar_automata(ListaCaracteres, a).
 
-automatonCheck([], InitialState) :-
-    accepting_state(InitialState).
+comprobar_automata([], EstadoInicial) :-
+    estado_aceptacion(EstadoInicial).
 
-automatonCheck([Symbol | RestofList], InitialState) :-
-    move(InitialState, NextState, Symbol),
-    automatonCheck(RestofList, NextState).
+comprobar_automata([Simbolo | RestoLista], EstadoInicial) :-
+    mover(EstadoInicial, EstadoSiguiente, Simbolo),
+    comprobar_automata(RestoLista, EstadoSiguiente).
 
 % Casos de prueba
 albudeite :-
     write('albudeite'), nl,
-    write('Expected: true'), nl,
-    go_over_automaton([a, l, b, u, d, e, i, t, e]).
+    write('Esperado: verdadero'), nl,
+    verificar_automata([a, l, b, u, d, e, i, t, e]).
 
 almirez :-
     write('almirez'), nl,
-    write('Expected: true'), nl,
-    go_over_automaton([a, l, m, i, r, e, z]).
+    write('Esperado: verdadero'), nl,
+    verificar_automata([a, l, m, i, r, e, z]).
 
 araq :-
     write('araq'), nl,
-    write('Expected: true'), nl,
-    go_over_automaton([a, r, a, q]).
+    write('Esperado: verdadero'), nl,
+    verificar_automata([a, r, a, q]).
 
 atambal :-
     write('atambal'), nl,
-    write('Expected: true'), nl,
-    go_over_automaton([a, t, a, m, b, a, l]).
+    write('Esperado: verdadero'), nl,
+    verificar_automata([a, t, a, m, b, a, l]).
 
 atanin :-
     write('atanin'), nl,
-    write('Expected: true'), nl,
-    go_over_automaton([a, t, a, n, i, n]).
+    write('Esperado: verdadero'), nl,
+    verificar_automata([a, t, a, n, i, n]).
 
 % Expresión regular equivalente: (^a)(l(budeite|mirez)|ta(mbal|nin)|raq)
