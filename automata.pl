@@ -42,7 +42,7 @@ comprobar_automata([], EstadoInicial) :-
     estado_aceptacion(EstadoInicial).
 
 comprobar_automata([Simbolo | RestoLista], EstadoInicial) :-
-    mover(EstadoInicial, EstadoSiguiente, Simbolo),
+    move(EstadoInicial, EstadoSiguiente, Simbolo),
     comprobar_automata(RestoLista, EstadoSiguiente).
 
 % Casos de prueba
