@@ -120,7 +120,18 @@ Por último, se incluyen varios casos de prueba, como `albudeite`, `almirez`, `a
 
 # Pruebas
 
-Para ejecutar el programa
+Para ejecutar el programa hay que abrir el archivo `autonama.pl` en prolog o copiar el codigo en otra terminal de prolog. 
+
+**Pruebas Exitosas**
+
+1.  `albudeite`
+2.	`almirez`
+3.	`araq`
+4.	`atambal`
+5.	`atanin`
+
+![trrace](https://github.com/user-attachments/assets/4a22bbd0-5aa0-4dce-a6df-134d92c33910)
+
 
 # Analisis
 
